@@ -1,0 +1,22 @@
+<?php
+
+namespace repository_namespace;
+
+use Iamnvk\Repository\Eloquent\Repository;
+use Iamnvk\Repository\Contracts\RepositoryInterface;
+
+/**
+ * Class repository_class
+ * @package repository_namespace
+ */
+class repository_class extends Repository
+{
+
+    /**
+     * @return string
+     */
+    public function model()
+    {
+        return 'model_path\model_name';
+    }
+}

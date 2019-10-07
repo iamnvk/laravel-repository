@@ -1,0 +1,31 @@
+{
+    "name": "iamnvk/repositories",
+    "description": "Laravel Repository",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Khanh Nguyen",
+            "email": "khanhnv.uit@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Iamnvk\\Repository\\": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        },
+        "laravel": {
+            "providers": [
+                "Iamnvk\\Repository\\RepositoryServiceProvider"
+            ]
+        }
+    },
+    "config": {
+        "sort-packages": true
+    }
+}
