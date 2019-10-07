@@ -8,7 +8,11 @@
             "email": "khanhnv.uit@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php": ">=5.6.0",
+        "illuminate/support": "5.*",
+        "illuminate/database": "5.*"
+    },
     "autoload": {
         "psr-4": {
             "Iamnvk\\Repository\\": "src/"

@@ -14,7 +14,7 @@ use Iamnvk\Repository\Commands\CriteriaCommand;
 use Iamnvk\Repository\Commands\RepositoryCommand;
 use Illuminate\Support\Composer;
 use Illuminate\Support\ServiceProvider;
-use League\Flysystem\Filesystem;
+use Illuminate\Filesystem\Filesystem;
 
 class RepositoryServiceProvider extends ServiceProvider
 {
@@ -93,12 +93,15 @@ class RepositoryServiceProvider extends ServiceProvider
     protected function registerMakeRepositoryCommand()
     {
         // Make repository command.
-        $this->app['command.repository.make'] = $this->app->share(
-            function($app)
-            {
-                return new RepositoryCommand($app['RepositoryCreator']);
-            }
-        );
+        $this->app->singleton('command.repository.make', function ($app) {
+            return new RepositoryCommand($app['RepositoryCreator']);
+        });
+//        $this->app['command.repository.make'] = $this->app->share(
+//            function($app)
+//            {
+//                return new RepositoryCommand($app['RepositoryCreator']);
+//            }
+//        );
     }
 
     /**
@@ -107,12 +110,15 @@ class RepositoryServiceProvider extends ServiceProvider
     protected function registerMakeCriteriaCommand()
     {
         // Make criteria command.
-        $this->app['command.criteria.make'] = $this->app->share(
-            function($app)
-            {
-                return new CriteriaCommand($app['CriteriaCreator']);
-            }
-        );
+        $this->app->singleton('command.criteria.make', function ($app) {
+            return new CriteriaCommand($app['CriteriaCreator']);
+        });
+//        $this->app['command.criteria.make'] = $this->app->share(
+//            function($app)
+//            {
+//                return new CriteriaCommand($app['CriteriaCreator']);
+//            }
+//        );
     }
 
     /**
